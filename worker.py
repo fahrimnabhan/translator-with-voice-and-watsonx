@@ -4,20 +4,21 @@ from ibm_watson_machine_learning.foundation_models import Model
 import requests
 
 # placeholder for Watsonx_API and Project_id incase you need to use the code outside this environment
-#Watsonx_API = "Your WatsonX API"
-#Project_id= "Your Project ID"
+Watsonx_API = ""
+project_id= ""
 
 # Define the credentials 
 credentials = {
-    "url": "https://us-south.ml.cloud.ibm.com"
+    "url": "https://us-south.ml.cloud.ibm.com",
+    "apikey": Watsonx_API
 }
 
 # Define the project id
 #project_id = "PROJECT_ID"
-project_id = "skills-network"
+#project_id = "skills-network"
     
 # Specify model_id that will be used for inferencing
-model_id = 'ModelTypes.FLAN_UL2'
+model_id = 'google/flan-ul2'
 
 # Define the model parameters
 from ibm_watson_machine_learning.metanames import GenTextParamsMetaNames as GenParams
@@ -34,7 +35,7 @@ model = Model(
     model_id=model_id,
     params=parameters,
     credentials=credentials,
-    project_id="skill-network"
+    project_id=project_id
 )
 
 
